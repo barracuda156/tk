@@ -992,10 +992,11 @@ ConfigureRestrictProc(
 
 	self.layer = [CALayer layer];
 	self.wantsLayer = YES;
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1070
 	self.layerContentsRedrawPolicy = NSViewLayerContentsRedrawOnSetNeedsDisplay;
 	self.layer.contentsGravity = self.layer.contentsAreFlipped ?
 	    kCAGravityTopLeft : kCAGravityBottomLeft;
-
+#endif
 	/*
 	 * Nothing gets drawn at all if the layer does not have a delegate.
 	 * Currently, we do not implement any methods of the delegate, however.

@@ -317,8 +317,8 @@ VISIBILITY_HIDDEN
     NSAutoreleasePool *_mainPool;
     NSThread *_backgoundLoop;
 
-#ifdef __i386__
-    /* The Objective C runtime used on i386 requires this. */
+#if defined(__i386__) || defined(__POWERPC__)
+    /* The Objective C runtime used on i386 and PowerPC requires this. */
     int _poolLock;
     int _macOSVersion;  /* 10000 * major + 100*minor */
     Bool _isDrawing;
@@ -445,8 +445,8 @@ VISIBILITY_HIDDEN
 VISIBILITY_HIDDEN
 @interface TKWindow : NSWindow
 {
-#ifdef __i386__
-    /* The Objective C runtime used on i386 requires this. */
+#if defined(__i386__) || defined(__POWERPC__)
+    /* The Objective C runtime used on i386 and PowerPC requires this. */
     Window _tkWindow;
 #endif
 }
@@ -460,8 +460,8 @@ VISIBILITY_HIDDEN
 @interface TKDrawerWindow : NSWindow
 {
     id _i1, _i2;
-#ifdef __i386__
-    /* The Objective C runtime used on i386 requires this. */
+#if defined(__i386__) || defined(__POWERPC__)
+    /* The Objective C runtime used on i386 and PowerPC requires this. */
     Window _tkWindow;
 #endif
 }
@@ -470,8 +470,8 @@ VISIBILITY_HIDDEN
 
 @interface TKPanel : NSPanel
 {
-#ifdef __i386__
-    /* The Objective C runtime used on i386 requires this. */
+#if defined(__i386__) || defined(__POWERPC__)
+    /* The Objective C runtime used on i386 and PowerPC requires this. */
     Window _tkWindow;
 #endif
 }
